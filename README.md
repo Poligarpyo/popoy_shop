@@ -73,3 +73,6 @@ composer install
 npm install
 npm run dev
 php artisan serve
+
+command this
+composer install --optimize-autoloader --no-scripts --no-interaction
