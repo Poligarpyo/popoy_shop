@@ -46,18 +46,19 @@ return [
         'mysql'   => [
             'driver'         => 'mysql',
             'url'            => env('DB_URL'),
-            'host'           => env('DB_HOST', ),
-            'port'           => env('DB_PORT', default: 4000),
+            'host'           => env('DB_HOST', '127.0.0.1'),
+            'port'           => env('DB_PORT', 3306),
             'database'       => env('DB_DATABASE'),
             'username'       => env('DB_USERNAME'),
             'password'       => env('DB_PASSWORD'),
-            'charset'        => env('utf8mb4'),
+            'charset'        => 'utf8mb4',
+            'collation'      => 'utf8mb4_unicode_ci',
             'prefix'         => '',
             'prefix_indexes' => true,
-            // 'strict' => true,
-            // 'engine' => null,
+
+            // ✅ DISABLE SSL (Railway-compatible)
             'options'        => extension_loaded('pdo_mysql') ? [
-                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => '/etc/ssl/certs/ca-certificates.crt',
+                \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
             ] : [],
         ],
 
