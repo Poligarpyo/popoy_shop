@@ -12,7 +12,7 @@ class Product extends Model
         'description',
         'price',
         'image',
-        'cetegory',
+        'category',
         'brand',
         'stock',
         'is_featured',
