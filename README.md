@@ -76,3 +76,5 @@ php artisan serve
 
 command this
 composer install --optimize-autoloader --no-scripts --no-interaction
+
+railway run curl -o /tmp/isrgrootx1.pem https://letsencrypt.org/certs/isrgrootx1.pem
