@@ -45,8 +45,7 @@ return [
 
         'mysql'   => [
             'driver'         => 'mysql',
-            'url'            => env('DB_URL'),
-            'host'           => env('DB_HOST', ),
+            'host'           => env('DB_HOST'),
             'port'           => env('DB_PORT'),
             'database'       => env('DB_DATABASE'),
             'username'       => env('DB_USERNAME'),
@@ -55,12 +54,10 @@ return [
             'collation'      => 'utf8mb4_unicode_ci',
             'prefix'         => '',
             'prefix_indexes' => true,
-
-            // ✅ DISABLE SSL (Railway-compatible)
-            'options'        => [
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ],
-
+            'options'        => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA     => env('MYSQL_ATTR_SSL_CA'), // must point to TiDB CA
+                PDO::ATTR_EMULATE_PREPARES => true,
+            ]) : [],
         ],
 
         'mariadb' => [
