@@ -57,10 +57,10 @@ return [
             'prefix_indexes' => true,
 
             // ✅ DISABLE SSL (Railway-compatible)
-            'options'        => extension_loaded('pdo_mysql') ? array_filter(
-                [
-                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-                ]) : [],
+            'options'        => [
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ],
+
         ],
 
         'mariadb' => [
