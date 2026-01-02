@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Controllers\Concerns\handlesCart;
+use App\Http\Controllers\Concerns\HandlesCart;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
@@ -12,7 +12,7 @@ use Inertia\Response;
 
 class CartController extends Controller
 {
-    use handlesCart;
+    use HandlesCart;
     public function index(): Response
     {
         $cart      = $this->getCart();
