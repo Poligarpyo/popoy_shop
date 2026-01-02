@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Concerns\handlesCart;
+use App\Http\Controllers\Concerns\HandlesCart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Services\HitPayServices;
@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class CheckoutController extends Controller
 {
-    use handlesCart;
+    use HandlesCart;
 
     public function __construct(
         private readonly HitPayServices $hitPayService
